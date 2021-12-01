@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT%20Serif">
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>Conversor de moedas</title>
+
+</head>
+<body>
+ <script src="./script.js"></script>
+
+    <header class="header">
+        <h1 class="title">Conversor de moedas</h1>
+    </header>
+
+    <section id="main">
+        <div class="container-form">
+            <form class="formulario">
+                <div class="form-text">
+                    <p class="text-value">Valor</p>
+                    <input id="value" type="number">
+                </div>
+                <div class="form-text">
+                    <p class="text-select">Converter de</p>
+                    <select name="firstSelector" class="form-item select" id="firstOption">
+                    <option value="USD">Dolár Americano</option>
+                    <option value="BRL">Real Brasileiro</option>
+                    <option value="EUR">Euro</option>
+                    <option value="GBP">Libra Esterlina</option>
+                    </select>
+                </div> 
+                <div class="form-text"> 
+                    <p class="text-select">Para</p>
+                    <select name="secondSelector" class="form-item select" id="secondOption">
+                        <option value="BRL">Real Brasileiro</option>
+                        <option value="USD">Dolár Americano</option>
+                        <option value="EUR">Euro</option>
+                        <option value="GBP">Libra Esterlina</option>
+                    </select>
+                </div>
+                <div class="button-container">
+                    <input id="botao" type="button" class="form-item" value="Converter">
+                </div>
+            </form>
+        </div>
+        <div id="content" ></div>
+    </section>
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Feito utilizando a api <a href="https://docs.awesomeapi.com.br">awesomeapi.com.br</a></p>
+        </div>
+    </footer>
+</body>
+</html>
