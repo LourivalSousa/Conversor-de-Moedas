@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded",()=>{
     const botao = document.querySelector("#botao");
-    botao.addEventListener("click",convertToReal);
+    botao.addEventListener("click",convertCurrency);
     swapOptions();
     
 
@@ -20,14 +20,13 @@ function getCurrencies(){
 function getUrl(){
     const currency = getCurrencies();
     const url = `https://economia.awesomeapi.com.br/json/${currency.firstCurrency}-${currency.secondCurrency}`;
-    console.log(url);
     return url;
 }
 
 
 
-function convertToReal(){
-    const valueToConvert = document.getElementById("value").value; // mudar o nome da variavel
+function convertCurrency(){
+    const valueToConvert = document.getElementById("value").value; 
     const url = getUrl();
     fetch(url)
         .then((response)=>{
