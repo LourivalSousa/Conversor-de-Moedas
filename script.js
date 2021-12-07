@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
     const botao = document.querySelector("#botao");
     botao.addEventListener("click",convertCurrency);
-    swapOptions();
+    switchOptions();
     
 
 })
@@ -42,27 +42,21 @@ function convertCurrency(){
         .catch((erro)=> console.log(erro))
 }
 
-function swapOptions(){
-
-    const firstOption = document.querySelector("#firstOption")
-    let formerFirstOpt = firstOption.value;
-
-    const secondOption = document.querySelector("#secondOption");
-    let formerSecondOpt = secondOption.value;
-    
-    firstOption.addEventListener('change',()=>{
-        if(firstOption.value===secondOption.value){
-            secondOption.value = formerFirstOpt;
-            formerSecondOpt = secondOption.value;
-        }
-        formerFirstOpt = firstOption.value;
-    });
-
-    secondOption.addEventListener('change',()=>{
-        if(secondOption.value===firstOption.value){
-            firstOption.value = formerSecondOpt;
-            formerFirstOpt = firstOption.value;
-        }
-        formerSecondOpt = secondOption.value;
-    });
+function switchOptions(){
+    /* if both options have the same value this function will switch the option that's wasn't 
+    changed for the last time, for the changed option previous value */
+   const selectors = document.querySelectorAll(".select");
+   let formerFirst = selectors[0].value;
+   let formerSecond = selectors[1].value;
+   selectors.forEach(selector =>{
+       selector.addEventListener('change',()=>{
+           if(selectors[0].value === selectors[1].value){
+               selectors[0].value = formerSecond;
+               selectors[1].value = formerFirst;
+           }
+           formerFirst = selectors[0].value;
+           formerSecond = selectors[1].value;
+       })
+   })
 }
+
