@@ -1,20 +1,14 @@
-
-
 document.addEventListener("DOMContentLoaded",()=>{
     const botao = document.querySelector("#botao");
-    botao.addEventListener("click",convertCurrency);
+    botao.addEventListener("click",fetchData);
     switchOptions();
-    
-
 })
 
 function getCurrencies(){
-
-    let currency = {
+    return currency = {
         firstCurrency : document.getElementById("firstOption").value,
         secondCurrency : document.getElementById("secondOption").value
     }
-    return currency;
 }
 
 function getUrl(){
@@ -23,22 +17,18 @@ function getUrl(){
     return url;
 }
 
-
-
-function convertCurrency(){
+function convertCurrency (data) {
     const valueToConvert = document.getElementById("value").value; 
+    const resultado = (data[0].bid*valueToConvert).toFixed(2);
+    const texto = document.getElementById("content");
+    texto.innerHTML = "R$ " +resultado;
+}
+
+function fetchData(){
     const url = getUrl();
     fetch(url)
-        .then((response)=>{
-            return response.json();
-        })  
-        .then((data)=>{  
-            const resultado = (data[0].bid*valueToConvert).toFixed(2);
-            const texto = document.getElementById("content");
-            texto.innerHTML = "R$ " +resultado;
-        
-
-        })
+        .then(response => response.json())  
+        .then(convertCurrency)
         .catch((erro)=> console.log(erro))
 }
 
