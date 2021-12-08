@@ -27,11 +27,11 @@
 
 #main {
     width: 50%;
-    height: 70vh;
+    height: 60vh;
     border: 2px solid rgb(180, 185, 206);
     background-color: #9393a5; ;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }   
 .container-form{
@@ -89,12 +89,19 @@ input[type="button"]:hover{
     margin-top: 20px;
 }
 
-.footer{ 
+.footer{
+    position: absolute;
+    bottom: 0;
+}
+
+.container-footer{ 
     width: 100vw;
     height: 50px;
     margin-top: 30px;
     background-color: #2e313a ;;  
     text-align: center;
+    position: relative;
+    bottom: 0px;
 }
 
 a,p{
